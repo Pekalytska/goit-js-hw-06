@@ -1,0 +1,20 @@
+.gallery {
+  margin: 20px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.gallery li {
+  display: flex;
+  flex-basis: calc((100% - 20px) / 3);
+}
+
+.gallery li:not(:last-child) {
+  margin-right: 30px;
+}
+
+.js-img {
+  display: block;
+  width: 100%;
+}
