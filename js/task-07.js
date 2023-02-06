@@ -3,7 +3,7 @@ const ref = {
     textValue: document.querySelector("#text"),
 }
 
-ref.rangeInput.addEventListener("change", onRangeChange);
+ref.rangeInput.addEventListener("input", onRangeChange);
 
 const initialFontSize = parseInt(getComputedStyle(ref.textValue).fontSize);
 const { min, max } = ref.rangeInput;

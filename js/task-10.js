@@ -10,7 +10,9 @@ const refs = {
 };
 
 refs.creatBtn.addEventListener("click", onCreatBoxes);
-refs.destroyBtn.addEventListener('click', onDestroyBoxes);
+refs.destroyBtn.addEventListener("click", onDestroyBoxes);
+
+let initialSizeOfDiv = 30;
 
 function onCreatBoxes() {
   const input = refs.controlsField.firstElementChild;
@@ -20,13 +22,13 @@ function onCreatBoxes() {
 
   const arrOfDivs = [];
 
-  for (let i = 0, j = 30; i < input.value; i += 1, j += 10) {
+  for (let i = 0; i < input.value; i += 1) {
     const div = document.createElement("div");
-    div.style.width = j + "px";
-    div.style.height = j + "px";
+    div.style.width = initialSizeOfDiv + "px";
+    div.style.height = initialSizeOfDiv + "px";
     div.style.background = getRandomHexColor();
     arrOfDivs.push(div);
-    console.log(arrOfDivs);
+    initialSizeOfDiv += 10;
   }
 
   refs.boxesField.style.display = "flex";
@@ -34,8 +36,6 @@ function onCreatBoxes() {
 }
 
 function onDestroyBoxes() {
-    refs.boxesField.innerHTML = "";
+  refs.boxesField.innerHTML = "";
+  initialSizeOfDiv = 30;
 }
-
-//Створи функцію createBoxes(amount), яка приймає один параметр - число.Функція створює стільки < div >,
-//    скільки вказано в amount і додає їх у div#boxes.
